@@ -1,0 +1,36 @@
+.Navbar {
+  background: rgb(11, 87, 202);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3%;
+  color: white;
+}
+
+.Title {
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.NavItemContainer {
+  display: flex;
+}
+
+.NavItemContainer a:hover {
+  text-decoration: none;
+}
+
+.NavItem {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+  color: white;
+}
+
+.Active {
+  background-color: rgb(90, 144, 214);
+}

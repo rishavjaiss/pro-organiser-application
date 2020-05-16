@@ -1,0 +1,74 @@
+.Container {
+  margin: 20px 50px;
+}
+.Head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.Heading {
+  font-size: larger;
+  font-weight: 100;
+  color: rgb(43, 137, 226);
+}
+.AddColumn {
+  border: 0.5px grey dashed;
+  border-radius: 5px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+}
+.ColumnContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.Column {
+  width: 200px;
+  height: auto;
+  border-radius: 5px;
+  background-color: rgb(201, 197, 197);
+  justify-content: center;
+  margin-right: 15px;
+  margin: 8px;
+}
+.ColumnHead {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px;
+}
+.DeleteBin {
+  width: 15px;
+  height: 15px;
+  margin-top: 5px;
+}
+.CardConatiner {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 8px;
+}
+.Card {
+  width: border-box;
+  border-radius: 5px;
+  background-color: white;
+  padding: 5px;
+  box-shadow: 3px 3px 10px 0px rgba(112, 106, 112, 0.72);
+  margin: 8px;
+  text-align: center;
+}
+.AddCard {
+  width: border-box;
+  background-color: white;
+  padding: 5px 30px;
+  margin: 10px;
+  text-align: center;
+}
+.AddCard:hover {
+  cursor: pointer;
+}

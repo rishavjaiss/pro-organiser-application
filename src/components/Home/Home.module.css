@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+* {
+  font-family: "Slabo 27px", serif;
+}
+.Container {
+  margin: 20px 50px;
+}
+.Heading {
+  font-size: larger;
+  font-weight: 100;
+  color: rgb(43, 137, 226);
+}
+.Board {
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  font-size: 14px;
+  box-shadow: 3px 3px 10px 0px rgba(112, 106, 112, 0.72);
+  color: black;
+}
+.Board:hover {
+  cursor: pointer;
+}
+.BoardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}

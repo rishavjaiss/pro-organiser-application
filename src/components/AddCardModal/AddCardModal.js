@@ -9,7 +9,7 @@ function MyVerticallyCenteredModal(props) {
     const { columnid } = props;
     const { boardid } = props;
     var title = document.getElementById("title").value;
-    var members = document.getElementById("members").value;
+    var members = document.getElementById("team").value;
     var description = document.getElementById("description").value;
     var duedate = document.getElementById("due_date").value;
     if (
@@ -66,7 +66,7 @@ function MyVerticallyCenteredModal(props) {
             <label htmlFor="exampleFormControlSelect1">
               Choose members for this task (select multiple,if needed)
             </label>
-            <select className="form-control" id="members" multiple required>
+            <select className="form-control" id="team" multiple>
               <option>RJ-Rishav Jaiswal</option>
               <option>NN-Nikhil Nair</option>
             </select>

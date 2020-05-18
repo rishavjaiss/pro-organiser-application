@@ -103,9 +103,9 @@ export default function BoardDetails(props) {
   }
 
   function deleteBoard() {
-    // axios
-    //   .delete(`https://pro-organizer-app-7871e.firebaseio.com/${BoardId}.json`)
-    //   .then(browserHistory.push("/"));
+    axios.delete(
+      `https://pro-organizer-app-7871e.firebaseio.com/${BoardId}.json`
+    );
   }
   return (
     <>

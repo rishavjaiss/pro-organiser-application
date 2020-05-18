@@ -7,18 +7,18 @@ export default function CreateBoard() {
   function handleSubmit(e) {
     e.preventDefault();
     var name = document.getElementById("name").value;
-    var members = document.getElementById("members").value.split(",");
+    var team = document.getElementById("team").value.split(",");
     var type = document.getElementById("type").value;
-    if (name !== "" && members !== "" && type !== "")
+    if (name !== "" && team !== "" && type !== "")
       axios
         .post(`https://pro-organizer-app-7871e.firebaseio.com/.json`, {
           Name: name + " Board",
-          Members: members,
+          Members: team,
           Type: type,
         })
         .then(alert("Board has been created!"));
     document.getElementById("name").value = "";
-    document.getElementById("members").value = "";
+    document.getElementById("team").value = "";
     document.getElementById("type").value = "";
   }
 
@@ -43,7 +43,7 @@ export default function CreateBoard() {
           <input
             type="text"
             className="form-control"
-            id="members"
+            id="team"
             placeholder="Add your team (seperated by commas)"
             required
           />

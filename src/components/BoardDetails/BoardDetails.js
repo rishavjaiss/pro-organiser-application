@@ -3,6 +3,7 @@ import axios from "axios";
 import styles from "./BoardDetails.module.css";
 import AddColumnModal from "../AddColumnModal/AddColumnModal.js";
 import AddCardModal from "../AddCardModal/AddCardModal.js";
+import CardDetailsModal from "../CardDetailsModal/CardDetailsModal.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function BoardDetails(props) {
@@ -10,7 +11,8 @@ export default function BoardDetails(props) {
   const [columnModalShow, setColumnModalShow] = useState(false);
   const [cardModalShow, setCardModalShow] = useState(false);
   const [ColumnId, setColumnId] = useState("");
-
+  const [viewCardModal, setViewCardModal] = useState(false);
+  const [cardId, setCardId] = useState("");
   var BoardId = props.match.params.id;
 
   useEffect(() => {
@@ -18,15 +20,6 @@ export default function BoardDetails(props) {
       .get(`https://pro-organizer-app-7871e.firebaseio.com/${BoardId}.json`)
       .then((res) => setBoardDetails(res.data));
   }, [BoardId]);
-
-  // useEffect(() => {
-  //   if (cardModalShow === false || columnModalShow === false) {
-  //     axios
-  //       .get(`https://pro-organizer-app-7871e.firebaseio.com/${BoardId}.json`)
-  //       .then((res) => setBoardDetails(res.data));
-  //   }
-  //   console.log("AGAIN FETCHED");
-  // }, [cardModalShow, columnModalShow]);
 
   function deleteColumn(e) {
     var delKey = e.currentTarget.parentNode.parentNode.id;
@@ -37,10 +30,42 @@ export default function BoardDetails(props) {
       )
       .then(e.currentTarget.parentNode.parentNode.remove());
   }
-
+  function viewDetails(cardId) {
+    setCardId(cardId);
+    setColumnId(document.getElementById(cardId).parentNode.parentNode.id);
+    setViewCardModal(true);
+  }
   function addCard(ColumnId) {
     setColumnId(ColumnId);
     setCardModalShow(true);
+  }
+  function getCards(ColumnId) {
+    var CardTitle = [];
+    var CardMembers = [];
+    var CardID = [];
+    for (let key in boardDetails.ColumnList[ColumnId].Cards) {
+      const title = boardDetails.ColumnList[ColumnId].Cards[key].Title;
+      const members = boardDetails.ColumnList[ColumnId].Cards[key].Members;
+      const id = key;
+      CardTitle.push(title);
+      CardMembers.push(members.split("-")[0]);
+      CardID.push(id);
+    }
+    const CardList = CardTitle.map((title, index) => (
+      <div className={styles.Card} id={CardID[index]} key={index}>
+        <p className={styles.Title}>{title}</p>
+        <div className={styles.MemberContainer}>
+          <img
+            src="https://static.thenounproject.com/png/1107449-200.png"
+            alt="ViewButton"
+            className={styles.ViewButton}
+            onClick={() => viewDetails(CardID[index])}
+          ></img>
+          <span className={styles.MemberIcon}>{CardMembers[index]}</span>
+        </div>
+      </div>
+    ));
+    return CardList;
   }
 
   function getColumnList() {
@@ -63,7 +88,7 @@ export default function BoardDetails(props) {
             onClick={(e) => deleteColumn(e)}
           />
         </div>
-        <div className={styles.CardContainer}></div>
+        <div className={styles.CardContainer}>{getCards(ColumnID[index])}</div>
         <div
           className={styles.AddCard}
           onClick={() => {
@@ -78,9 +103,9 @@ export default function BoardDetails(props) {
   }
 
   function deleteBoard() {
-    // axios.delete(
-    //   `https://pro-organizer-app-7871e.firebaseio.com/${BoardId}.json`
-    // );
+    // axios
+    //   .delete(`https://pro-organizer-app-7871e.firebaseio.com/${BoardId}.json`)
+    //   .then(browserHistory.push("/"));
   }
   return (
     <>
@@ -116,6 +141,15 @@ export default function BoardDetails(props) {
           show={cardModalShow}
           onHide={() => setCardModalShow(false)}
           columnid={ColumnId}
+          boardid={BoardId}
+        />
+      ) : null}
+      {viewCardModal ? (
+        <CardDetailsModal
+          show={viewCardModal}
+          onHide={() => setViewCardModal(false)}
+          columnid={ColumnId}
+          cardid={cardId}
           boardid={BoardId}
         />
       ) : null}

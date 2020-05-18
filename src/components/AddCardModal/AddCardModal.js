@@ -12,17 +12,26 @@ function MyVerticallyCenteredModal(props) {
     var members = document.getElementById("members").value;
     var description = document.getElementById("description").value;
     var duedate = document.getElementById("due_date").value;
-    axios
-      .post(
-        `https://pro-organizer-app-7871e.firebaseio.com/${boardid}/ColumnList/${columnid}/Cards.json`,
-        {
-          Title: title,
-          Members: members,
-          Description: description,
-          Due_Date: duedate,
-        }
-      )
-      .then(props.onHide());
+    if (
+      title === "" ||
+      members === "" ||
+      description === "" ||
+      duedate === ""
+    ) {
+      alert("Please fill all fields!");
+    } else {
+      axios
+        .post(
+          `https://pro-organizer-app-7871e.firebaseio.com/${boardid}/ColumnList/${columnid}/Cards.json`,
+          {
+            Title: title,
+            Members: members,
+            Description: description,
+            Due_Date: duedate,
+          }
+        )
+        .then(props.onHide());
+    }
   }
 
   useEffect(() => {
@@ -50,15 +59,16 @@ function MyVerticallyCenteredModal(props) {
               id="title"
               className="form-control"
               placeholder="e.g. Add a new icon"
+              required
             />
           </div>
           <div className="form-group">
             <label htmlFor="exampleFormControlSelect1">
               Choose members for this task (select multiple,if needed)
             </label>
-            <select className="form-control" id="members" multiple>
-              <option>RJ - Rishav Jaiswal</option>
-              <option>NN - Nikhil Nair</option>
+            <select className="form-control" id="members" multiple required>
+              <option>RJ-Rishav Jaiswal</option>
+              <option>NN-Nikhil Nair</option>
             </select>
           </div>
           <div className="form-group">
@@ -70,13 +80,19 @@ function MyVerticallyCenteredModal(props) {
               className="form-control"
               id="description"
               placeholder="Add your description here"
+              required
             />
           </div>
           <div className="form-group">
             <label htmlFor="exampleFormControlInput1">
               Select due-date for this task
             </label>
-            <input type="date" className="form-control" id="due_date" />
+            <input
+              type="date"
+              className="form-control"
+              id="due_date"
+              required
+            />
           </div>
           <button
             type="button"

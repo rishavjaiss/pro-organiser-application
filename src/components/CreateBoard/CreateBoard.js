@@ -16,10 +16,11 @@ export default function CreateBoard() {
           Members: team,
           Type: type,
         })
-        .then(alert("Board has been created!"));
-    document.getElementById("name").value = "";
-    document.getElementById("team").value = "";
-    document.getElementById("type").value = "";
+        .then(
+          (document.getElementById("name").value = ""),
+          (document.getElementById("team").value = ""),
+          (document.getElementById("type").value = "")
+        );
   }
 
   return (

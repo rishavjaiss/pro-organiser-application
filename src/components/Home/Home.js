@@ -6,7 +6,7 @@ import axios from "axios";
 import { trackPromise } from "react-promise-tracker";
 
 export default function Home() {
-  const [board, setBoard] = useState({});
+  const [board, setBoard] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   function getBoards() {

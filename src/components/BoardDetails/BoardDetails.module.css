@@ -52,6 +52,9 @@
   flex-direction: column;
   width: 200px;
 }
+.CardContainer > span {
+  margin: 0 auto;
+}
 .Card {
   width: border-box;
   border-radius: 5px;

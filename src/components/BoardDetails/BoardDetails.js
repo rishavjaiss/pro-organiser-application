@@ -65,7 +65,7 @@ export default function BoardDetails(props) {
         </div>
       </div>
     ));
-    return CardList;
+    return CardTitle.length > 0 ? CardList : <span>No tasks added</span>;
   }
 
   function getColumnList() {

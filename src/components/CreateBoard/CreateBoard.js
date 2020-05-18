@@ -12,7 +12,7 @@ export default function CreateBoard() {
     if (name !== "" && team !== "" && type !== "")
       axios
         .post(`https://pro-organizer-app-7871e.firebaseio.com/.json`, {
-          Name: name + " Board",
+          Name: name,
           Members: team,
           Type: type,
         })

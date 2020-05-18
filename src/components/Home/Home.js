@@ -32,10 +32,10 @@ export default function Home() {
     trackPromise(
       axios
         .get(`https://pro-organizer-app-7871e.firebaseio.com/.json`)
-        .then(
-          (res) => (res.data.length > 0 ? setBoard(res.data) : setBoard(null)),
-          setIsLoading(false)
+        .then((res) =>
+          res.data.length !== 0 ? setBoard(res.data) : setBoard("null")
         )
+        .then(setIsLoading(false))
     );
   }, []);
 
@@ -51,7 +51,7 @@ export default function Home() {
     >
       <Loader type="ThreeDots" color="blue" height="100" width="100" />
     </div>
-  ) : board.length === 0 ? (
+  ) : board === "null" ? (
     <h3>
       You haven't created any boards. Kindly click on the 'Create Board' button
       in the navigation bar to create a board.

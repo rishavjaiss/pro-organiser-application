@@ -19,6 +19,7 @@ function MyVerticallyCenteredModal(props) {
           Column: ColumnName,
         }
       )
+      .then(props.updateboard)
       .then(props.onHide());
   }
   return (

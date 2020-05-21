@@ -2,8 +2,11 @@ import React from "react";
 import axios from "axios";
 import styles from "./CreateBoard.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+// import { Redirect } from "react-router-dom";
 
 export default function CreateBoard() {
+  // const [redirect, setRedirect] = useState(false);
+
   function handleSubmit(e) {
     e.preventDefault();
     var name = document.getElementById("name").value;
@@ -13,16 +16,20 @@ export default function CreateBoard() {
       axios
         .post(`https://pro-organizer-app-7871e.firebaseio.com/.json`, {
           Name: name,
-          Members: team,
+          Team: team,
           Type: type,
         })
         .then(
           (document.getElementById("name").value = ""),
           (document.getElementById("team").value = ""),
           (document.getElementById("type").value = "")
+          // setRedirect(true)
         );
   }
 
+  // return redirect ? (
+  //   <Redirect to="/" />
+  // ) :
   return (
     <div className={styles.Container}>
       <p className={styles.Heading}>Create a Board</p>

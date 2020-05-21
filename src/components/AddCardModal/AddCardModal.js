@@ -30,6 +30,7 @@ function MyVerticallyCenteredModal(props) {
             Due_Date: duedate,
           }
         )
+        .then(props.updateboard)
         .then(props.onHide());
     }
   }

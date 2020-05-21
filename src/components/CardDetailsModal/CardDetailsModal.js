@@ -51,7 +51,12 @@ export default function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
         <h5>Description</h5>
-        <input type="text" value={cardDetails?.Cards[cardid].Description} />
+        <input
+          type="text"
+          className="form-control"
+          value={cardDetails?.Cards[cardid].Description}
+          readOnly
+        />
         <hr></hr>
         <h5>Members</h5>
         <p>
@@ -61,7 +66,12 @@ export default function MyVerticallyCenteredModal(props) {
         </p>
         <hr></hr>
         <h5>Due Date</h5>
-        <input type="text" value={cardDetails?.Cards[cardid].Due_Date} />
+        <input
+          type="date"
+          className="form-control"
+          value={cardDetails?.Cards[cardid].Due_Date}
+          readOnly
+        />
       </Modal.Body>
     </Modal>
   );

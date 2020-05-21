@@ -21,6 +21,7 @@
   align-items: center;
   flex-direction: row;
   cursor: pointer;
+  margin: 10px 0;
 }
 .ColumnContainer {
   display: flex;
@@ -30,7 +31,7 @@
 }
 .Column {
   width: 200px;
-  height: auto;
+  height: fit-content;
   border-radius: 5px;
   background-color: rgb(201, 197, 197);
   justify-content: center;
@@ -62,10 +63,10 @@
   padding: 5px;
   box-shadow: 3px 3px 10px 0px rgba(112, 106, 112, 0.72);
   margin: 8px;
-  text-align: center;
 }
 .Title {
-  overflow-x: scroll;
+  display: flex;
+  justify-content: space-between;
 }
 .MemberContainer {
   display: flex;
@@ -90,6 +91,7 @@
   padding: 5px 30px;
   margin: 10px;
   text-align: center;
+  border: grey 1px dashed;
 }
 .AddCard:hover {
   cursor: pointer;

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import Loader from "react-loader-spinner";
 import axios from "axios";
-import { trackPromise } from "react-promise-tracker";
 
 export default function Home() {
   const [board, setBoard] = useState();
@@ -29,14 +28,10 @@ export default function Home() {
   }
 
   useEffect(() => {
-    trackPromise(
-      axios
-        .get(`https://pro-organizer-app-7871e.firebaseio.com/.json`)
-        .then((res) =>
-          res.data.length !== 0 ? setBoard(res.data) : setBoard("null")
-        )
-        .then(setIsLoading(false))
-    );
+    axios
+      .get(`https://pro-organizer-app-7871e.firebaseio.com/.json`)
+      .then((res) => (res.data != null ? setBoard(res.data) : setBoard("null")))
+      .then(setIsLoading(false));
   }, []);
 
   return isLoading ? (
@@ -52,10 +47,13 @@ export default function Home() {
       <Loader type="ThreeDots" color="blue" height="100" width="100" />
     </div>
   ) : board === "null" ? (
-    <h3>
-      You haven't created any boards. Kindly click on the 'Create Board' button
-      in the navigation bar to create a board.
-    </h3>
+    <div className={styles.Container}>
+      <p className={styles.Heading}>Boards</p>
+      <h5>
+        You haven't created any boards. Kindly click on the 'Create Board'
+        button in the navigation bar to create a board.
+      </h5>
+    </div>
   ) : (
     <div className={styles.Container}>
       <p className={styles.Heading}>Boards</p>

@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/pro-organiser-application/static/css/main.6f181061.chunk.css",
+    "main.js": "/pro-organiser-application/static/js/main.abb6b7b5.chunk.js",
+    "main.js.map": "/pro-organiser-application/static/js/main.abb6b7b5.chunk.js.map",
+    "runtime-main.js": "/pro-organiser-application/static/js/runtime-main.ae569194.js",
+    "runtime-main.js.map": "/pro-organiser-application/static/js/runtime-main.ae569194.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/pro-organiser-application/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.ba9b3d48.chunk.js": "/pro-organiser-application/static/js/2.ba9b3d48.chunk.js",
+    "static/js/2.ba9b3d48.chunk.js.map": "/pro-organiser-application/static/js/2.ba9b3d48.chunk.js.map",
+    "index.html": "/pro-organiser-application/index.html",
+    "precache-manifest.96f2cd36eac5b855afdba5fa52f9b4c9.js": "/pro-organiser-application/precache-manifest.96f2cd36eac5b855afdba5fa52f9b4c9.js",
+    "service-worker.js": "/pro-organiser-application/service-worker.js",
+    "static/css/2.af3c1da9.chunk.css.map": "/pro-organiser-application/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.6f181061.chunk.css.map": "/pro-organiser-application/static/css/main.6f181061.chunk.css.map",
+    "static/js/2.ba9b3d48.chunk.js.LICENSE.txt": "/pro-organiser-application/static/js/2.ba9b3d48.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ae569194.js",
+    "static/css/2.af3c1da9.chunk.css",
+    "static/js/2.ba9b3d48.chunk.js",
+    "static/css/main.6f181061.chunk.css",
+    "static/js/main.abb6b7b5.chunk.js"
+  ]
+}
